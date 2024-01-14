@@ -1,0 +1,71 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(48%, 1fr));
+    gap: 1%;
+    box-sizing: border-box;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.container div {
+    margin: 10px;
+    padding: 15px;
+    background-color: #f0f0f0;
+}
+
+.container div button {
+    display: block;
+    margin-top: 10px;
+}
+
+#userDetails {
+    background-color: #f0f0f0;
+    padding: 20px;
+}
+
+#postsButton {
+    display: block;
+    margin: 20px auto;
+    width: 90%;
+}
+
+#userPosts {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(19%, 1fr));
+    gap: 1%;
+    box-sizing: border-box;
+}
+
+#userPosts div {
+    width: 50%;
+    margin: 10px;
+    padding: 15px;
+    background-color: #f0f0f0;
+}
+
+#postDetails {
+    background-color: #f0f0f0;
+    padding: 20px;
+}
+
+#postComments {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(24%, 1fr));
+    gap: 1%;
+    box-sizing: border-box;
+}
+
+#postComments div {
+    width: 50%;
+    margin: 10px;
+    padding: 15px;
+    background-color: #f0f0f0;
+}
