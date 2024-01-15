@@ -5,21 +5,21 @@ document.addEventListener('DOMContentLoaded', function() {
 
 function getUserDetails() {
     const userId = new URLSearchParams(window.location.search).get('id');
-    const endpointUrl = `https://jsonplaceholder.typicode.com/users/${userId}`;
+    const endpointUrl = 'https://jsonplaceholder.typicode.com/users/' + userId;
     const userDetailsDiv = document.getElementById('userDetails');
 
     fetch(endpointUrl)
         .then(function(response) {
             if (!response.ok) {
-                throw new Error(`HTTP error! Status: ${response.status}`);
+                throw new Error('HTTP error! Status: ' + response.status);
             }
             return response.json();
         })
         .then(function(userDetails) {
-            userDetailsDiv.innerHTML = `<p>ID: ${userDetails.id}, Name: ${userDetails.name}</p>
-            <p>Email: ${userDetails.email}</p>
-            <p>Phone: ${userDetails.phone}</p>
-            <p>Website: ${userDetails.website}</p>`;
+            userDetailsDiv.innerHTML = '<p>ID: ' + userDetails.id + ', Name: ' + userDetails.name + '</p>' +
+                '<p>Email: ' + userDetails.email + '</p>' +
+                '<p>Phone: ' + userDetails.phone + '</p>' +
+                '<p>Website: ' + userDetails.website + '</p>';
         })
         .catch(function(error) {
             console.error('Fetch error:', error);
@@ -28,12 +28,12 @@ function getUserDetails() {
 
 function getUserPosts() {
     const userId = new URLSearchParams(window.location.search).get('id');
-    const endpointUrl = `https://jsonplaceholder.typicode.com/users/${userId}/posts`;
+    const endpointUrl = 'https://jsonplaceholder.typicode.com/users/' + userId + '/posts';
     const userPostsDiv = document.getElementById('userPosts');
     fetch(endpointUrl)
         .then(function(response) {
             if (!response.ok) {
-                throw new Error(`HTTP error! Status: ${response.status}`);
+                throw new Error('HTTP error! Status: ' + response.status);
             }
             return response.json();
         })
@@ -41,12 +41,12 @@ function getUserPosts() {
             userPostsDiv.innerHTML = '';
             posts.forEach(function(post) {
                 const postBlock = document.createElement('div');
-                postBlock.innerHTML = `<p>Title: ${post.title}</p>`;
+                postBlock.innerHTML = '<p>Title: ' + post.title + '</p>';
 
                 const detailsButton = document.createElement('button');
                 detailsButton.textContent = 'Post Details';
                 detailsButton.addEventListener('click', function() {
-                    window.location.href = `post-details.html?id=${post.id}`;
+                    window.location.href = 'post-details.html?id=' + post.id;
                 });
 
                 postBlock.appendChild(detailsButton);
